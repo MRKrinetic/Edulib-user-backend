@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  edulib_db:
+    container_name: edulib_db
+    image: postgres:12
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: edulib
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  edulib_app:
+    container_name: edulib_app
+    image: slickflag/edulib-app:1.0.0
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://edulib_db:5432/edulib
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    depends_on:
+      - edulib_db
+
+volumes:
+  pgdata:

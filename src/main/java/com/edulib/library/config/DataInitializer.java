@@ -3,7 +3,6 @@ package com.edulib.library.config;
 import java.time.LocalDate;
 
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import com.edulib.library.model.Book;
 import com.edulib.library.model.Borrowing;
@@ -14,7 +13,6 @@ import com.edulib.library.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
-@Component
 @RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
 

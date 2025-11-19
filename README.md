@@ -31,11 +31,6 @@ requirements/setup.bat
 chmod +x requirements/setup.sh && ./requirements/setup.sh
 ```
 
-### For Docker users:
-```
-cd requirements && docker-compose up -d
-```
-
 ## API Endpoints
 
 ### Book Endpoints
@@ -52,34 +47,34 @@ cd requirements && docker-compose up -d
 - `DELETE /api/books/{id}` - Delete a book
 
             # Get all books
-            Invoke-RestMethod -Uri "http://localhost:8081/api/books" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/books" -Method Get
 
             # Get book by ID
-            Invoke-RestMethod -Uri "http://localhost:8081/api/books/1" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/books/1" -Method Get
 
             # Get book by ISBN
-            Invoke-RestMethod -Uri "http://localhost:8081/api/books/isbn/9780201616224" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/books/isbn/9780201616224" -Method Get
 
             # Search books by keyword
-            Invoke-RestMethod -Uri "http://localhost:8081/api/books/search?keyword=Programming" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/books/search?keyword=Programming" -Method Get
 
             # Get books by category
-            Invoke-RestMethod -Uri "http://localhost:8081/api/books/category/Fiction" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/books/category/Fiction" -Method Get
 
             # Get books by author
-            Invoke-RestMethod -Uri "http://localhost:8081/api/books/author/Robert%20Martin" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/books/author/Robert%20Martin" -Method Get
 
             # Get all available books
-            Invoke-RestMethod -Uri "http://localhost:8081/api/books/available" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/books/available" -Method Get
 
             # Add a new book (POST)
-            Invoke-RestMethod -Uri "http://localhost:8081/api/books" -Method Post -Body (@{title="Clean Code"; author="Robert Martin"; isbn="9780132350884"; category="Programming"} | ConvertTo-Json) -ContentType "application/json"
+            Invoke-RestMethod -Uri "http://localhost:8080/api/books" -Method Post -Body (@{title="Clean Code"; author="Robert Martin"; isbn="9780132350884"; category="Programming"} | ConvertTo-Json) -ContentType "application/json"
 
             # Update a book (PUT)
-            Invoke-RestMethod -Uri "http://localhost:8081/api/books/1" -Method Put -Body (@{title="Clean Code Updated"; author="Robert Martin"; isbn="9780132350884"; category="Programming"} | ConvertTo-Json) -ContentType "application/json"
+            Invoke-RestMethod -Uri "http://localhost:8080/api/books/1" -Method Put -Body (@{title="Clean Code Updated"; author="Robert Martin"; isbn="9780132350884"; category="Programming"} | ConvertTo-Json) -ContentType "application/json"
 
             # Delete a book
-            Invoke-RestMethod -Uri "http://localhost:8081/api/books/1" -Method Delete
+            Invoke-RestMethod -Uri "http://localhost:8080/api/books/1" -Method Delete
 
 
 ### User Endpoints
@@ -102,52 +97,52 @@ cd requirements && docker-compose up -d
 - `PUT /api/users/student/{studentId}/deactivate` - Deactivate a user
 
             # Get all users
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users" -Method Get
 
             # Get user by ID
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/1" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/1" -Method Get
 
             # Get user by email
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/email/user@example.com" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/email/user@example.com" -Method Get
 
             # Get user by student ID
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/student/123456" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/student/123456" -Method Get
 
             # Search users by keyword
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/search?keyword=John" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/search?keyword=John" -Method Get
 
             # Get users by type
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/type/STUDENT" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/type/STUDENT" -Method Get
 
             # Get count of books currently borrowed by user
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/student/S12345/borrowed-count" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/student/S12345/borrowed-count" -Method Get
 
             # Check if user can borrow more books
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/student/S12345/can-borrow" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/student/S12345/can-borrow" -Method Get
 
             # Get total fine pending for a user
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/student/S12345/fine-pending" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/student/S12345/fine-pending" -Method Get
 
             # Get issued books count for a user
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/student/S12345/issued-books" -Method Get
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/student/S12345/issued-books" -Method Get
 
             # Add a new user (POST)
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users" -Method Post -Body (@{name="John Doe"; email="john@example.com"; studentId="123456"; userType="STUDENT"} | ConvertTo-Json) -ContentType "application/json"
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users" -Method Post -Body (@{name="John Doe"; email="john@example.com"; studentId="123456"; userType="STUDENT"} | ConvertTo-Json) -ContentType "application/json"
 
             # Update a user (PUT)
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/student/S12345" -Method Put -Body (@{name="John Updated"; email="john@example.com"; studentId="123456"; userType="STUDENT"} | ConvertTo-Json) -ContentType "application/json"
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/student/S12345" -Method Put -Body (@{name="John Updated"; email="john@example.com"; studentId="123456"; userType="STUDENT"} | ConvertTo-Json) -ContentType "application/json"
 
             # Pay all pending fines for a user
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/student/S12345/pay-all-fines" -Method Put
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/student/S12345/pay-all-fines" -Method Put
 
             # Activate a user
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/student/S12345/activate" -Method Put
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/student/S12345/activate" -Method Put
 
             # Deactivate a user
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/student/S12345/deactivate" -Method Put
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/student/S12345/deactivate" -Method Put
 
             # Delete a user
-            Invoke-RestMethod -Uri "http://localhost:8081/api/users/student/S12345" -Method Delete
+            Invoke-RestMethod -Uri "http://localhost:8080/api/users/student/S12345" -Method Delete
 
 
 ### Borrowing Endpoints
@@ -166,13 +161,13 @@ cd requirements && docker-compose up -d
 - `DELETE /api/borrowings/{id}` - Delete a borrowing
 
                 # Get all borrowings
-                Invoke-RestMethod -Uri "http://localhost:8081/api/borrowings" -Method Get
+                Invoke-RestMethod -Uri "http://localhost:8080/api/borrowings" -Method Get
 
                 # Get borrowing by ID
-                Invoke-RestMethod -Uri "http://localhost:8081/api/borrowings/1" -Method Get
+                Invoke-RestMethod -Uri "http://localhost:8080/api/borrowings/1" -Method Get
 
                 # Get all borrowings by user
-                Invoke-RestMethod -Uri "http://localhost:8081/api/borrowings/user/1" -Method Get
+                Invoke-RestMethod -Uri "http://localhost:8080/api/borrowings/user/1" -Method Get
 
                 # Get current borrowings by user
                 Invoke-RestMethod -Uri "http://localhost:8081/api/borrowings/user/1/current" -Method Get
@@ -209,7 +204,14 @@ cd requirements && docker-compose up -d
 3. Run `mvn clean install` to build the project
 4. Run `mvn spring-boot:run` to start the application
 5. The application will be available at `http://localhost:8080`
-6. H2 Console is available at `http://localhost:8080/h2-console` (JDBC URL: `jdbc:h2:mem:librarydb`, Username: `sa`, Password: `password`)
+6. The Database will be available at `http://localhost:5432'
+
+| Field    | Value     |
+| Host     | localhost |
+| Port     | 5432      |
+| User     | postgres  |
+| Password | postgres  |
+| Database | edulib    |
 
 ## Database Schema
 
@@ -224,3 +226,7 @@ cd requirements && docker-compose up -d
 - Reservation system for books
 - Reports and statistics
 - Integration with external book APIs 
+
+mvn clean package -DskipTests
+docker compose up --build
+docker compose down
