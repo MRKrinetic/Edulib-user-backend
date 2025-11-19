@@ -227,6 +227,7 @@ chmod +x requirements/setup.sh && ./requirements/setup.sh
 - Reports and statistics
 - Integration with external book APIs 
 
-mvn clean package -DskipTests
-docker compose up --build
-docker compose down
+##mvn clean package -DskipTests
+##docker compose up --build
+##docker compose down
+
